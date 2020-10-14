@@ -28,7 +28,9 @@ def process_record(record):
 
 def print_status():
     for cow in cow_dict.values():
-        print(cow.get_status())
+        report = cow.get_status()
+        if(report):
+            print(report)
 
 if __name__ == '__main__':
     cow_dict = {}
