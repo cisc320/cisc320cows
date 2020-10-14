@@ -33,7 +33,7 @@ def print_status():
 
 if __name__ == '__main__':
     cow_dict = {}
-    cowPath = '/ingress/cow.txt'
+    cowPath = '/ingress/cows.txt'
     path = os.getcwd() + cowPath
     print(path)
     main(path)
