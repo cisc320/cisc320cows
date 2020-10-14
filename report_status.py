@@ -4,6 +4,7 @@ import re
 from cow import Cow
 
 def main(filepath):
+    # lets do a relative path 
     if not os.path.isfile(filepath):
         print("File path {} does not exist. Exiting...".format(filepath))
         sys.exit()
@@ -32,5 +33,8 @@ def print_status():
 
 if __name__ == '__main__':
     cow_dict = {}
-    main("/Users/philipoconnor/Desktop/phil.txt")
+    cowPath = '/ingress/cow.txt'
+    path = os.getcwd() + cowPath
+    print(path)
+    main(path)
     print_status()
