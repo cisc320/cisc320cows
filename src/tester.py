@@ -12,6 +12,6 @@ if __name__ == '__main__':
     start = time.time()
     with open(test_txt) as test:
         for line in test:
-            cows.process_record(test)
+            cows.process_record(line)
     exec_time = round(time.time() - start, 4)
     print('Execution time was ' + str(exec_time))
