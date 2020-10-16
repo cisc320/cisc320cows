@@ -6,12 +6,13 @@
 
 A cow record consists of three numbers and a letter, separated by spaces (in the form "Number, Letter, Number, Number"). All numbers will be 32-bit integers (i.e., no more than 2^31).
 
-The first element is the Cow ID, a unique number representing that cow inside the dataset.
-The second element is the Action Code, and will be either the letter "W", "M", or "T"
-If the letter is "W", for "Weighing", then the third element will be the latest Weight of the cow (a number in pounds).
-If the letter is "M", for "Milking", then the third element will be the amount of the Milk produced by the cow (a number in pounds).
-If the letter is "T", for "Temperature", then the third element will be the current Temperature of the cow (a number in Fahrenheit).
-The fourth element is the Timestamp, a number representing when the record was made.
+- The first element is the Cow ID, a unique number representing that cow inside the dataset.
+- The second element is the Action Code, and will be either the letter "W", "M", or "T"
+- If the letter is "W", for "Weighing", then the third element will be the latest Weight of the cow (a number in pounds).
+- If the letter is "M", for "Milking", then the third element will be the amount of the Milk produced by the cow (a number in pounds).
+- If the letter is "T", for "Temperature", then the third element will be the current Temperature of the cow (a number in Fahrenheit).
+- The fourth element is the Timestamp, a number representing when the record was made.
+
 An example of several records are below:
 
 ```
