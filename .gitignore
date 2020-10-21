@@ -1,1 +1,6 @@
-!*.py
+
+# Python compiled
+.pyc
+
+# IDE
+.idea/

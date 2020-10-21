@@ -1,6 +1,9 @@
+"""
+cow.py
+Cow data holding, and processing
+"""
 
 class Cow:
-
     def __init__(self, id):
         self.id = id
         self.num_milkings = 0
@@ -8,9 +11,6 @@ class Cow:
         self.latest_weight = None
         self.lowest_weight = None
         self.temp = None
-        self.parent = None
-        self.left = None
-        self.right = None
 
     def set_weight(self, weight):
         self.latest_weight = weight
@@ -37,6 +37,8 @@ class Cow:
         return self.temp
 
     def get_avg_milk_prod(self):
+        if self.num_milkings == 0:
+            return 0
         return int(self.total_milk_prod/self.num_milkings)
 
     def get_status(self):
