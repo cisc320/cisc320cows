@@ -50,6 +50,6 @@ To input a cow we use a dictionary to find the cow given its ID. If it is not in
 
 To sort the cows we used the quicksort algorithm which has an average case of O(n log(n)). Therefore the average case given c number of cows is O(c log(c)).
 
-Therefore since we used the quicksort algorithm in addition to us using a dictionary to input rows, we have an average case of O(c log(c) + r).
+Therefore since we used the quicksort algorithm in addition to using a dictionary to input rows, we have an average case of O(c log(c) + r).
 
-When printing the sorted list of cows we check if the cow has at least one weight and one milking. This takes  O(c), but since this is a constant we can ignore this. Therefore the average case is stilll O(c log(c) + r).
+When printing the sorted list of cows we check if the cow has at least one weight and one milking. This takes  O(c), but since this is a constant we can ignore this. Therefore the average case is still O(c log(c) + r).
