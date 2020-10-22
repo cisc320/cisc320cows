@@ -41,3 +41,15 @@ An example of output is below:
 507 1000 1000 6
 1 1400 1700 7
 ```
+
+------
+
+Solution
+
+To input a cow we use a dictionary to find the cow given its ID. If it is not in the dictionary then it makes a new key:value pair and appends the cow to a list of cows, if it is in the dictionary we can update the relevant information. Since a dictionary is O(1) each time we input a record it will be O(1). Therefore the time complexity for inputing r number of rows is r.
+
+To sort the cows we used the quicksort algorithm which has an average case of O(n log(n)). Therefore the average case given c number of cows is O(c log(c)).
+
+Therefore since we used the quicksort algorithm in addition to us using a dictionary to input rows, we have an average case of O(c log(c) + r).
+
+When printing the sorted list of cows we check if the cow has at least one weight and one milking. This takes  O(c), but since this is a constant we can ignore this. Therefore the average case is stilll O(c log(c) + r).
