@@ -50,12 +50,10 @@ def print_status():
         report = cow.get_status()
         if(report):
             print(report)
-
-
-def partition(array, start, end):
+            
+def partition(arr, low, high):
     """
         Brains of the quicksort. Pivots around the starting index.
-
         Args:
             array (List): List of non-sorted cows.
             start (int): Start index of focus.
@@ -63,66 +61,33 @@ def partition(array, start, end):
         Returns:
             int: New high index.
     """
-    pivot = array[start]
-    low = start + 1
-    high = end
-    while True:
-        while low <= high:
-            curr = array[high]
-            if curr.get_lowest_weight() > pivot.get_lowest_weight():
-                high -= 1
-            elif curr.get_lowest_weight() == pivot.get_lowest_weight():
-                if curr.get_latest_weight() > pivot.get_latest_weight():
-                    high -= 1
-                elif curr.get_latest_weight() == pivot.get_latest_weight():
-                    if curr.get_avg_milk_prod() > pivot.get_avg_milk_prod:
-                        high -= 1
-                    else:
-                        break
-                else:
-                    break
-            else:
-                break
+    i = (low-1)         
+    pivot = arr[high]     
+ 
+    for j in range(low, high):
+        curr = arr[j]
+        if curr.get_lowest_weight() != None and pivot.get_lowest_weight() != None and curr.get_lowest_weight() < pivot.get_lowest_weight():
+            i = i+1
+            arr[i], arr[j] = arr[j], arr[i]
+        elif curr.get_lowest_weight() == None or curr.get_lowest_weight() == pivot.get_lowest_weight():
+            if curr.get_latest_weight() != None and pivot.get_latest_weight() != None and  curr.get_latest_weight() < pivot.get_latest_weight():
+                i = i+1
+                arr[i], arr[j] = arr[j], arr[i]
+            elif curr.get_latest_weight() == pivot.get_latest_weight():
+                if curr.get_avg_milk_prod() < pivot.get_avg_milk_prod():
+                    i = i+1
+                    arr[i], arr[j] = arr[j], arr[i]
+            
+    
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return (i+1)
 
-        while low <= high:
-            curr = array[low]
-            if curr.get_lowest_weight() < pivot.get_lowest_weight():
-                low += 1
-            elif curr.get_lowest_weight() == pivot.get_lowest_weight():
-                if curr.get_latest_weight() < pivot.get_latest_weight():
-                    low += 1
-                elif curr.get_latest_weight() == pivot.get_latest_weight():
-                    if curr.get_avg_milk_prod() < pivot.get_avg_milk_prod:
-                        low += 1
-                    else:
-                        break
-                else:
-                    break
-            else:
-                break
-
-        if low <= high:
-            array[low], array[high] = array[high], array[low]
-        else:
-            break
-    array[start], array[high] = array[high], array[start]
-    return high
-
-
-def sort_cows(array, start, end):
-    """
-        Recursive quicksort function.
-
-        Args:
-            array (List): List of non-sorted cows.
-            start (int): Start index of list.
-            end (int): Last index of the list.
-    """
-    if start >= end:
-        return
-    p = partition(array, start, end)
-    sort_cows(array, start, p-1)
-    sort_cows(array, p+1, end)
+def sort_cows(arr, low, high):
+    if low < high:
+        pi = partition(arr, low, high)
+        sort_cows(arr, low, pi-1)
+        sort_cows(arr, pi+1, high)
+        
 
 if __name__ == "__main__":
     cow_dict = {}
